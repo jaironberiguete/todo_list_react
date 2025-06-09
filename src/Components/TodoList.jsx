@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import './TodoList.css';
 
 const TodoList = () => {
-    const handleAddTodo = () => {
-        if (headingInput.trim() !== '') {
-          setTodos([...todos, { heading: headingInput, lists: [] }]);
-          setHeadingInput('');
-        }
-      };
+  
 
   return (
     <>
@@ -18,27 +13,14 @@ const TodoList = () => {
             type="text"
             className="heading-input"
             placeholder="Enter heading"
-            value={headingInput}
-            onChange={(e) => {setHeadingInput(e.target.value);}} // Add onChange event handler to update headingInput state
-          
+            
           />
           <button className="add-list-button">Add Heading</button>
         </div>
       </div>
       <div className="todo_main">
-        {todos.map((todo, index) => ( // Iterate over each todo item in the todos array
-            <div key={index} className="todo-card">
-                <div className="heading_todo">
-                {/* Display the heading text of the current todo item */}
-                    <h3>{todo.heading}</h3> {/* Display the heading here */}
-                {/* Button to delete the current heading by passing its index */}
-                    <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}>Delete Heading </button>
-                </div>
-            </div>
-        ))} 
-
+        
       </div>
-
     </>
   );
 };
